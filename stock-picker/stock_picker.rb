@@ -14,7 +14,7 @@ def stock_picker(prices)
       end
     end
   end
-  puts buy_sell_days.join (",")
+  puts buy_sell_days.join(",")
 end
 
 stock_picker([17,3,6,9,15,8,6,1,10])
