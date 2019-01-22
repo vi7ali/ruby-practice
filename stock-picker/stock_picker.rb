@@ -2,14 +2,14 @@ def stock_picker(prices)
   buy_day, sell_day, best_deal = 0, 0, 0
   buy_sell_days = []
   
-  prices.each do |price|
-    if prices.index(price) != 0
-      buy_arr = prices.select {|el| prices.index(el)<prices.index(price)}
+  prices.each do |sell|
+    if prices.index(sell) != 0
+      buy_arr = prices.select {|el| prices.index(el)<prices.index(sell)}
       buy_arr.each do |buy|
-        if price-buy > best_deal
-          best_deal = price-buy
+        if sell-buy > best_deal
+          best_deal = sell-buy
           buy_sell_days.clear
-          buy_sell_days.push(prices.index(buy), prices.index(price))
+          buy_sell_days.push(prices.index(buy), prices.index(sell))
         end
       end
     end
