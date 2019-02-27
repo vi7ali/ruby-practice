@@ -112,7 +112,7 @@ class Round
     if input == "2"
       File.open(fname, "w"){|file| file.write(to_json)}
     else
-      if File.exist?(fname)
+      if File.exist?(fname) && !File.empty?(fname)
         loaded_game = JSON.parse(File.read(fname), :symbolize_names => true)
         set_instance_variables(loaded_game)
       end
