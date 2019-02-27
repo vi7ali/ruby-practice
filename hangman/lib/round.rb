@@ -3,8 +3,7 @@ require "json"
 
 class Round
 
-  attr_accessor :attempts, :hidden_word, 
-  :generated_word, :wrong_guesses
+  attr_accessor :attempts, :hidden_word, :generated_word, :wrong_guesses
 
   def initialize(opts)
     #setting the variables in a separate method for the save/load feature to work
@@ -84,8 +83,7 @@ class Round
 
   def update_game_status(input)
     case input
-    when "1"
-      show_display
+    when "1"      
       puts "Please type the word below"
       guessed_word = gets.chomp.strip.upcase
       self.attempts = 0
@@ -102,8 +100,7 @@ class Round
       else
         self.wrong_guesses.push(input)
         self.attempts -= 1
-      end
-      show_display
+      end      
     end
   end
 
