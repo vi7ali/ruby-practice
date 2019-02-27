@@ -51,10 +51,10 @@ class Round
     
     display = <<~DISP
       Hello, let's play a game!
-      You've got #{attempts} out of 5 attempts to guess the word.
+      You've got #{attempts} out of 12 attempts to guess the word.
 
       The word is: #{formatted_hw}
-      
+
       *******************************
       WRONG GUESSES: #{formatted_wg}
       *******************************
