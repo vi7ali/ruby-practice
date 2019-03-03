@@ -34,6 +34,7 @@ class Round
       input = get_input.upcase
       update_game_status(input)
       if check_status == "win"
+        show_display
         puts "Congratulations, You win!!!"
         break
       elsif check_status == "lose"
@@ -97,9 +98,11 @@ class Round
       if generated_word.include?(input)      
         array_of_matched_indexes = (0...generated_word.length).find_all{|i| generated_word[i] == input}
         array_of_matched_indexes.each {|index| hidden_word[index] = generated_word[index]}
-      else
+      elsif !wrong_guesses.include?(input)
         self.wrong_guesses.push(input)
         self.attempts -= 1
+      else
+        puts "\nYou already tried this letter\n"
       end      
     end
   end
