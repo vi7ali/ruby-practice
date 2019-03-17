@@ -8,10 +8,24 @@ class LinkedList
     @size = 0
   end
 
+  #tail method returns the last element of the list 
+  #by checking the .next_node property of the current node
+  def tail
+    last_node = head
+    while last_node.next_node != nil
+      last_node = last_node.next_node
+    end
+    last_node
+  end
+
+  #seperate method to create a new node object for
+  #optimiztion purpose
   def create_node(value)
     node = Node.new(value)
   end
 
+  #append method addes a new node to the end of the list by getting
+  #the last node and assigning the property next_node a new node
   def append(value)
     new_node = create_node(value)    
     if head.nil?
@@ -23,25 +37,16 @@ class LinkedList
     self.size += 1
   end
 
+  #prepend method works by assigning the property next_node of 
+  #the new node to head and setting itself as a new head
   def prepend(value)
     new_node = create_node(value)
-    if head.nil?
-      self.head = new_node
-    else
-      new_node.next_node = head
-      self.head = new_node
-    end
+    new_node.next_node = head
+    self.head = new_node
     self.size += 1
   end
 
-  def tail
-    last_node = head
-    while last_node.next_node != nil
-      last_node = last_node.next_node
-    end
-    last_node
-  end
-
+  
   def at(index)
     return if size == 0
     node_at = head
