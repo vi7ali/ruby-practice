@@ -99,4 +99,15 @@ class BinaryTree
       return "Value not found"
     end
   end
+
+  def dfs_rec(value, node = root)
+    return node if node.nil?
+    if node.value == value
+      return "Found #{value} in #{node}"
+    elsif value < node.value
+      dfs_rec(value, node.children[:left])
+    else
+      dfs_rec(value, node.children[:right])
+    end
+  end
 end
